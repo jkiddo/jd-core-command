@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+		<actionSet 
+			id="jd.ide.eclipse.actionSet"
+			label="Java Decompiler"
+			visible="false">			
+    		<menu 
+    		   id="jd.ide.eclipse.menu"
+			   label="Java Decompiler"
+			   path="help/helpStart"> 
+			   <separator name="additions"/>
+			   <separator name="last"/>
+			</menu>
+			<action 
+               id="jd.ide.eclipse.actions.BugsAction"
+			   label="Report Bugs"
+			   icon="icons/bug.png"
+			   class="jd.ide.eclipse.actions.BugsAction"
+			   menubarPath="help/jd.ide.eclipse.menu/additions"
+			   toolbarPath="org.eclipse.ui.workbench.help/additions"
+			   tooltip="Report Bugs">
+		    </action>
+			<action 
+               id="jd.ide.eclipse.actions.SuggestionsAction"
+			   label="Post Suggestions"
+			   icon="icons/suggestion.png"
+			   class="jd.ide.eclipse.actions.SuggestionsAction"
+			   menubarPath="help/jd.ide.eclipse.menu/additions"
+			   toolbarPath="org.eclipse.ui.workbench.help/additions"
+			   tooltip="Post Suggestions">
+		    </action>
+			<action 
+               id="jd.ide.eclipse.actions.AboutAction"
+			   label="About..."
+			   icon="icons/jd_16.png"
+			   class="jd.ide.eclipse.actions.AboutAction"
+			   menubarPath="help/jd.ide.eclipse.menu/last"
+			   toolbarPath="org.eclipse.ui.workbench.help/additions"
+			   tooltip="About Java Decompiler...">
+		   </action>
+      </actionSet>         
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup class="jd.ide.eclipse.startup.JDStartupClass"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.jdt.ui.preferences.JavaBasePreferencePage"
+            class="jd.ide.eclipse.preferences.PreferencePage"
+            id="jd.ide.eclipse.preferences.PreferencePage"
+            name="Decompiler">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="jd.ide.eclipse.preferences.PreferenceInitializer"/>
+   </extension>
+</plugin>
